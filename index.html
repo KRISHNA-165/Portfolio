@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gunda Balakrishna | Software Engineer</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg: #0d0d0b;
+      --text: #f0ede6;
+      --accent: #c8f040;
+      --muted: #7a776e;
+      --card: #1a1a16;
+      --card-dark: #121210;
+      --border: #2a2a24;
+      
+      --font-display: 'Instrument Serif', serif;
+      --font-body: 'DM Sans', sans-serif;
+      --font-mono: 'DM Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    /* Typography */
+    h1, h2, h3 {
+      font-family: var(--font-display);
+      font-weight: 400;
+      line-height: 1.1;
+    }
+
+    .mono {
+      font-family: var(--font-mono);
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .accent {
+      color: var(--accent);
+    }
+
+    /* Layout Utilities */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    section {
+      padding: 100px 0;
+    }
+
+    .section-title {
+      font-size: 3rem;
+      margin-bottom: 48px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 16px;
+    }
+
+    /* Navbar */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 70px;
+      background: rgba(13, 13, 11, 0.8);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-inner {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-links {
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      .nav-links {
+        display: flex;
+        gap: 32px;
+        font-family: var(--font-mono);
+        font-size: 13px;
+        color: var(--muted);
+      }
+      .nav-links a:hover {
+        color: var(--text);
+      }
+    }
+
+    .nav-status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      background-color: var(--accent);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(200, 240, 64, 0.4); }
+      70% { box-shadow: 0 0 0 6px rgba(200, 240, 64, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(200, 240, 64, 0); }
+    }
+
+    /* Hero */
+    .hero {
+      padding: 180px 0 100px;
+    }
+
+    .hero-eyebrow {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 24px;
+      display: block;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      margin-bottom: 24px;
+      max-width: 900px;
+    }
+
+    .hero-sub {
+      font-size: 16px;
+      max-width: 600px;
+      margin-bottom: 40px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 80px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 44px;
+      padding: 0 24px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #000;
+      font-weight: 500;
+      border: 1px solid var(--accent);
+    }
+
+    .btn-primary:hover {
+      background: transparent;
+      color: var(--accent);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--muted);
+    }
+
+    .stats-strip {
+      display: grid;
+      grid-template-columns: 1fr;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+    }
+
+    @media (min-width: 640px) {
+      .stats-strip {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .stats-strip {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .stat-item {
+      padding: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    @media (min-width: 640px) {
+      .stat-item:nth-child(odd) {
+        border-right: 1px solid var(--border);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .stat-item {
+        border-bottom: none;
+        border-right: 1px solid var(--border);
+      }
+      .stat-item:last-child {
+        border-right: none;
+      }
+    }
+
+    .stat-item p {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    /* Projects */
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin-bottom: 64px;
+      overflow: hidden;
+    }
+
+    /* Layer 1: Header */
+    .project-header {
+      padding: 40px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .project-header-top {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    @media (min-width: 768px) {
+      .project-header-top {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+    }
+
+    .project-title-wrapper {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+    }
+
+    .project-num {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      color: var(--accent);
+    }
+
+    .project-title {
+      font-size: 2.5rem;
+    }
+
+    .project-desc {
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 600px;
+      margin-bottom: 24px;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 12px;
+    }
+
+    .project-links .btn {
+      height: 36px;
+      padding: 0 16px;
+      font-size: 11px;
+    }
+
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tech-tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      padding: 4px 10px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--muted);
+    }
+
+    /* Layer 2: Metrics */
+    .project-metrics {
+      display: grid;
+      grid-template-columns: 1fr;
+      background: var(--card-dark);
+      border-bottom: 1px solid var(--border);
+    }
+
+    @media (min-width: 640px) {
+      .project-metrics {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .project-metrics {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .metric {
+      padding: 24px 40px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    @media (min-width: 640px) {
+      .metric:nth-child(odd) {
+        border-right: 1px solid var(--border);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .metric {
+        border-bottom: none;
+        border-right: 1px solid var(--border);
+      }
+      .metric:last-child {
+        border-right: none;
+      }
+    }
+
+    .metric-value {
+      font-family: var(--font-mono);
+      font-size: 20px;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .metric-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Layer 3: Engineering Decisions */
+    .project-decisions {
+      padding: 40px;
+      background: #090908;
+    }
+
+    .decisions-title {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 32px;
+    }
+
+    .decisions-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    @media (min-width: 768px) {
+      .decisions-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .decision-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 24px;
+      border-radius: 4px;
+    }
+
+    .decision-header {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+
+    .decision-header .choice-a {
+      color: var(--accent);
+    }
+
+    .decision-header .choice-b {
+      color: var(--muted);
+    }
+
+    .decision-text {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    /* Skills */
+    .skills-table {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--card);
+    }
+
+    .skill-row {
+      display: flex;
+      flex-direction: column;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .skill-row:last-child {
+      border-bottom: none;
+    }
+
+    @media (min-width: 768px) {
+      .skill-row {
+        flex-direction: row;
+      }
+    }
+
+    .skill-category {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--muted);
+      padding: 24px;
+      width: 100%;
+      border-bottom: 1px solid var(--border);
+    }
+
+    @media (min-width: 768px) {
+      .skill-category {
+        width: 200px;
+        flex-shrink: 0;
+        border-bottom: none;
+        border-right: 1px solid var(--border);
+      }
+    }
+
+    .skill-pills {
+      padding: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .skill-pill {
+      font-size: 13px;
+      padding: 6px 14px;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+
+    .skill-pill.strong {
+      border-color: var(--accent);
+      color: var(--text);
+    }
+
+    /* Experience */
+    .exp-item {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+
+    @media (min-width: 768px) {
+      .exp-item {
+        flex-direction: row;
+        gap: 40px;
+      }
+    }
+
+    .exp-date {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--muted);
+      flex-shrink: 0;
+    }
+
+    @media (min-width: 768px) {
+      .exp-date {
+        width: 140px;
+        padding-top: 4px;
+      }
+    }
+
+    .exp-content h3 {
+      font-size: 1.5rem;
+      margin-bottom: 4px;
+    }
+
+    .exp-company {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .exp-desc {
+      list-style: none;
+    }
+
+    .exp-desc li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 12px;
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    .exp-desc li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--border);
+      font-family: var(--font-mono);
+    }
+
+    /* Achievements */
+    .achievements-list {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .achievements-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      font-size: 16px;
+    }
+
+    .achievements-list li .bullet {
+      color: var(--accent);
+      font-size: 18px;
+      line-height: 1.4;
+    }
+
+    .achievements-list strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .achievements-list span.desc {
+      color: var(--muted);
+    }
+
+    /* Contact */
+    .contact-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 64px 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+
+    @media (min-width: 768px) {
+      .contact-card {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    .contact-info h2 {
+      font-size: 3rem;
+      margin-bottom: 16px;
+    }
+
+    .contact-info p {
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 400px;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 15px;
+      color: var(--text);
+      transition: color 0.2s;
+    }
+
+    .contact-link:hover {
+      color: var(--accent);
+    }
+
+    .contact-link span {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    @media (min-width: 640px) {
+      .footer-inner {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container nav-inner">
+      <div class="nav-logo">~/balakrishna</div>
+      <div class="nav-links">
+        <a href="#projects">projects</a>
+        <a href="#skills">skills</a>
+        <a href="#experience">experience</a>
+        <a href="#contact">contact</a>
+      </div>
+      <div class="nav-status">
+        <div class="pulse-dot"></div>
+        open to internships
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero container">
+      <span class="hero-eyebrow mono muted">B.Tech Computer Science · Year 2 · SRM Chennai · Batch 2028</span>
+      <h1>I build full-stack systems that ship to production.</h1>
+      <p class="hero-sub muted">TypeScript-first full-stack development, mobile apps, and real production deployments. Designed for scale and maintainability.</p>
+      
+      <div class="hero-ctas">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="https://docs.google.com/document/d/1dNv5HDuu_JqySOBtFNhleKGZ5_qPC3YSBE_uocfdGfI/edit?usp=sharing" class="btn btn-outline">Resume ↗</a>
+      </div>
+
+      <div class="stats-strip">
+        <div class="stat-item"><p>3 shipped projects</p></div>
+        <div class="stat-item"><p>6+ months internship experience</p></div>
+        <div class="stat-item"><p>99.8% TypeScript coverage (FinTrack)</p></div>
+        <div class="stat-item"><p>2nd place national design competition</p></div>
+      </div>
+    </section>
+
+    <section id="projects" class="container">
+      <h2 class="section-title">Projects</h2>
+
+      <!-- Project 01 -->
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-header-top">
+            <div class="project-title-wrapper">
+              <span class="project-num">01</span>
+              <h3 class="project-title">PostForge</h3>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/KRISHNA-165/PostForge" class="btn btn-outline">GitHub</a>
+              <a href="https://post-forge.vercel.app" class="btn btn-outline">Live Demo</a>
+            </div>
+          </div>
+          <p class="project-desc">Full-stack blogging platform — TypeScript-first, monorepo architecture, production-deployed with AI content suggestions</p>
+          <div class="tech-tags">
+            <span class="tech-tag">TypeScript</span>
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">Redux Toolkit</span>
+            <span class="tech-tag">Node.js</span>
+            <span class="tech-tag">Express</span>
+            <span class="tech-tag">Supabase</span>
+            <span class="tech-tag">Tailwind</span>
+          </div>
+        </div>
+        
+        <div class="project-metrics">
+          <div class="metric">
+            <div class="metric-value">76%</div>
+            <div class="metric-label">TS COVERAGE</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">JWT + OAuth</div>
+            <div class="metric-label">DUAL AUTH</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">Monorepo</div>
+            <div class="metric-label">CONCURRENT DEV</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">AI Endpoint</div>
+            <div class="metric-label">CONTENT SUGGESTIONS</div>
+          </div>
+        </div>
+
+        <div class="project-decisions">
+          <div class="decisions-title">Engineering Decisions</div>
+          <div class="decisions-grid">
+            <div class="decision-card">
+              <div class="decision-header">
+                <span class="choice-a">Redux Toolkit</span> over <span class="choice-b">Context API</span>
+              </div>
+              <p class="decision-text">Global state for auth, feed pagination, and bookmarks needed predictable updates across 8+ components. Context caused prop-drilling and stale closure bugs; RTK's createSlice gave atomic updates with zero boilerplate.</p>
+            </div>
+            <div class="decision-card">
+              <div class="decision-header">
+                <span class="choice-a">Supabase</span> over <span class="choice-b">custom auth</span>
+              </div>
+              <p class="decision-text">Building JWT rotation + OAuth from scratch was a 2-week detour. Supabase Auth handled token refresh, Google OAuth callback, and RLS policies — letting focus stay on product features.</p>
+            </div>
+            <div class="decision-card">
+              <div class="decision-header">
+                <span class="choice-a">TypeScript strict mode</span> across <span class="choice-b">API contracts</span>
+              </div>
+              <p class="decision-text">Runtime mismatches between frontend and backend caused silent bugs. Shared type definitions for API request/response shapes caught 6 type errors at compile time before they hit production.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 02 -->
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-header-top">
+            <div class="project-title-wrapper">
+              <span class="project-num">02</span>
+              <h3 class="project-title">Eventra</h3>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/KRISHNA-165/Eventra" class="btn btn-outline">GitHub</a>
+              <a href="https://eventra-azure.vercel.app" class="btn btn-outline">Live Demo</a>
+            </div>
+          </div>
+          <p class="project-desc">QR-code event attendance platform with live admin dashboard, real-time stats, and production-grade security</p>
+          <div class="tech-tags">
+            <span class="tech-tag">Node.js</span>
+            <span class="tech-tag">Express</span>
+            <span class="tech-tag">MongoDB</span>
+            <span class="tech-tag">JWT</span>
+            <span class="tech-tag">REST APIs</span>
+          </div>
+        </div>
+        
+        <div class="project-metrics">
+          <div class="metric">
+            <div class="metric-value">QR-based</div>
+            <div class="metric-label">CHECK-IN SYSTEM</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">0 duplicate</div>
+            <div class="metric-label">REGISTRATIONS</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">Excel export</div>
+            <div class="metric-label">ADMIN REPORTING</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">Rate limiting</div>
+            <div class="metric-label">BCRYPT SECURITY</div>
+          </div>
+        </div>
+
+        <div class="project-decisions">
+          <div class="decisions-title">Engineering Decisions</div>
+          <div class="decisions-grid">
+            <div class="decision-card">
+              <div class="decision-header">
+                <span class="choice-a">QR codes</span> over <span class="choice-b">manual check-in</span>
+              </div>
+              <p class="decision-text">Manual entry at events caused 3–5 second delays per attendee. QR scan + server validation reduced check-in time to under 800ms and eliminated human entry errors.</p>
+            </div>
+            <div class="decision-card">
+              <div class="decision-header">
+                <span class="choice-a">Rate limiting</span> at <span class="choice-b">middleware level</span>
+              </div>
+              <p class="decision-text">Brute-force attacks on the registration endpoint were caught in testing. Express-rate-limit at the route level blocked 50+ req/min per IP without touching business logic.</p>
+            </div>
+            <div class="decision-card">
+              <div class="decision-header">
+                <span class="choice-a">Modular REST architecture</span> over <span class="choice-b">monolith</span>
+              </div>
+              <p class="decision-text">Separating auth, events, and attendance into independent routers made it possible to test and deploy each domain independently, cutting debugging time significantly.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 03 -->
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-header-top">
+            <div class="project-title-wrapper">
+              <span class="project-num">03</span>
+              <h3 class="project-title">FinTrack Pro</h3>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/KRISHNA-165/FinTrack-Pro" class="btn btn-outline">GitHub</a>
+              <a href="https://drive.google.com/file/d/1Gto02eiKSW8WoH0fWEGCQsbX4d90zdP4/view?usp=sharing" class="btn btn-outline">APK-Download</a>
+            </div>
+          </div>
+          <p class="project-desc">Cross-platform mobile finance app — local-first architecture, biometric lock, multi-currency, TypeScript at 99.8%</p>
+          <div class="tech-tags">
+            <span class="tech-tag">React Native</span>
+            <span class="tech-tag">Expo</span>
+            <span class="tech-tag">TypeScript</span>
+            <span class="tech-tag">Zustand</span>
+            <span class="tech-tag">SQLite</span>
+            <span class="tech-tag">Expo Router</span>
+          </div>
+        </div>
+        
+        <div class="project-metrics">
+          <div class="metric">
+            <div class="metric-value">99.8%</div>
+            <div class="metric-label">TS COVERAGE</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">Local-first</div>
+            <div class="metric-label">WORKS OFFLINE</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">Biometric</div>
+            <div class="metric-label">FACE ID / TOUCH</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">3 periods</div>
+            <div class="metric-label">TIME INSIGHTS</div>
+          </div>
+        </div>
+
+        <div class="project-decisions">
+          <div class="decisions-title">Engineering Decisions</div>
+          <div class="decisions-grid">
+            <div class="decision-card">
+              <div class="decision-header">
+                <span class="choice-a">SQLite (local-first)</span> over <span class="choice-b">cloud DB</span>
+              </div>
+              <p class="decision-text">Finance data is sensitive and users need offline access. Expo SQLite + AsyncStorage gave zero-latency reads, full offline capability, and no backend cost — the right tradeoff for a personal finance app.</p>
+            </div>
+            <div class="decision-card">
+              <div class="decision-header">
+                <span class="choice-a">Zustand</span> over <span class="choice-b">Redux</span>
+              </div>
+              <p class="decision-text">React Native with Expo doesn't need Redux's ceremony for local app state. Zustand's 1KB footprint and direct store mutations cut state management code by ~60% compared to an equivalent RTK setup.</p>
+            </div>
+            <div class="decision-card">
+              <div class="decision-header">
+                <span class="choice-a">Expo Router</span> over <span class="choice-b">React Navigation</span>
+              </div>
+              <p class="decision-text">File-system routing mirrors Next.js conventions, making navigation logic readable and reducing configuration boilerplate. Deep linking worked out of the box without manual linking setup.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="container">
+      <h2 class="section-title">Skills</h2>
+      <div class="skills-table">
+        <div class="skill-row">
+          <div class="skill-category">languages</div>
+          <div class="skill-pills">
+            <div class="skill-pill strong">TypeScript ★</div>
+            <div class="skill-pill strong">JavaScript ★</div>
+            <div class="skill-pill">Java</div>
+            <div class="skill-pill">Python</div>
+            <div class="skill-pill">C/C++</div>
+            <div class="skill-pill">HTML/CSS</div>
+          </div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-category">frontend</div>
+          <div class="skill-pills">
+            <div class="skill-pill strong">React.js ★</div>
+            <div class="skill-pill strong">Redux Toolkit ★</div>
+            <div class="skill-pill strong">React Native ★</div>
+            <div class="skill-pill">Expo</div>
+            <div class="skill-pill">Tailwind CSS</div>
+            <div class="skill-pill">SCSS</div>
+            <div class="skill-pill">Vite</div>
+          </div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-category">backend</div>
+          <div class="skill-pills">
+            <div class="skill-pill strong">Node.js ★</div>
+            <div class="skill-pill strong">Express.js ★</div>
+            <div class="skill-pill">Spring Boot</div>
+            <div class="skill-pill">REST APIs</div>
+          </div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-category">databases</div>
+          <div class="skill-pills">
+            <div class="skill-pill">MongoDB</div>
+            <div class="skill-pill">Supabase (PostgreSQL)</div>
+            <div class="skill-pill">MySQL</div>
+            <div class="skill-pill">SQLite</div>
+          </div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-category">tools</div>
+          <div class="skill-pills">
+            <div class="skill-pill">Git</div>
+            <div class="skill-pill">GitHub</div>
+            <div class="skill-pill">Jira</div>
+            <div class="skill-pill">Postman</div>
+            <div class="skill-pill">Vercel</div>
+            <div class="skill-pill">Render</div>
+            <div class="skill-pill">Agile/Scrum</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="container">
+      <h2 class="section-title">Experience</h2>
+      
+      <div class="exp-item">
+        <div class="exp-date">Oct 2025 – Apr 2026</div>
+        <div class="exp-content">
+          <h3>Software Engineering Intern</h3>
+          <div class="exp-company">Mitt Arv · Remote</div>
+          <ul class="exp-desc">
+            <li>Analysed and optimised large-scale production codebases in React & Flutter, resolving architectural bottlenecks and reducing application crash rates</li>
+            <li>Collaborated in Agile/Scrum (Jira) to manage complex technical workflows and coordinate live production deployments</li>
+            <li>Contributed to backend logic and REST API integration for data-intensive applications, gaining exposure to scalable system architecture</li>
+          </ul>
+        </div>
+      </div>
+
+      
+    </section>
+
+    <section id="achievements" class="container">
+      <h2 class="section-title">Achievements</h2>
+      <ul class="achievements-list">
+        <li>
+          <div class="bullet">🥈</div>
+          <div>
+            <strong>2nd Place — National Level Technical Design Competition (2K'25):</strong>
+            <span class="desc">Recognised for innovative system design among peer engineering students</span>
+          </div>
+        </li>
+        <li>
+          <div class="bullet">•</div>
+          <div>
+            <strong>Top 5 — OOPS Odyssey CodeCrux (Innovatex '25):</strong>
+            <span class="desc">High-performance ranking in competitive OOP design contest</span>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section id="contact" class="container">
+      <div class="contact-card">
+        <div class="contact-info">
+          <h2>Let's build something real.</h2>
+          <p>Open to internships and interesting engineering problems.</p>
+        </div>
+        <div class="contact-links">
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=balakrishna2006165@gmail.com" class="contact-link">
+            <span>email /</span> balakrishna2006165@gmail.com
+          </a>
+          <a href="https://github.com/KRISHNA-165" class="contact-link">
+            <span>github /</span> KRISHNA-165
+          </a>
+          <a href="https://www.linkedin.com/in/balakrishna-gunda/" class="contact-link">
+            <span>linkedin /</span> balakrishna-gunda
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container">
+    <div class="footer-inner">
+      <div>Gunda Balakrishna · B.Tech CS · SRM 2028</div>
+      <div>built with HTML/CSS</div>
+    </div>
+  </footer>
+
+</body>
+</html>
